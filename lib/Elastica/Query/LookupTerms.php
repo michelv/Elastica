@@ -6,7 +6,7 @@ use Elastica\Exception\InvalidException;
 /**
  * Terms lookup query.
  *
- * @author Michel Valdrighi <michelv+github@gmail.com>
+ * @author Michel Valdrighi <opensource@miche.lv>
  *
  * @link https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-terms-query.html#query-dsl-terms-lookup
  */
@@ -70,7 +70,7 @@ class LookupTerms extends AbstractQuery
             throw new InvalidException('Terms key has to be set');
         }
 
-        if (count(array_diff($requiredKeys, array_keys($terms)))) {
+        if (count(array_diff($requiredKeys, array_keys($this->_terms)))) {
             throw new InvalidException('Lookup terms array requires those keys: index, type, id, path');
         }
 

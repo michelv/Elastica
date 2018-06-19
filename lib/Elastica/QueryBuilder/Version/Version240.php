@@ -26,6 +26,7 @@ class Version240 extends Version
         'has_child',
         'has_parent',
         'ids',
+        'lookup_terms',
         'match_all',
         'more_like_this',
         'nested',

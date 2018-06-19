@@ -14,6 +14,7 @@ use Elastica\Query\GeoDistance;
 use Elastica\Query\HasChild;
 use Elastica\Query\HasParent;
 use Elastica\Query\Ids;
+use Elastica\Query\LookupTerms;
 use Elastica\Query\Match;
 use Elastica\Query\MatchAll;
 use Elastica\Query\MatchNone;
@@ -229,6 +230,21 @@ class Query implements DSL
     public function ids($type = null, array $ids = [])
     {
         return new Ids($type, $ids);
+    }
+
+    /**
+     * lookup terms query.
+     *
+     * @link https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-terms-query.html#query-dsl-terms-lookup
+     *
+     * @param string $key
+     * @param array  $terms
+     *
+     * @return Terms
+     */
+    public function lookup_terms($key = '', array $terms = [])
+    {
+        return new LookupTerms($key, $terms);
     }
 
     /**
